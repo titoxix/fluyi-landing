@@ -1,0 +1,162 @@
+---
+
+---
+
+<section class="section">
+    <div class="value-container">
+        <div class="value-header">
+            <h2 class="section-title">
+                Fluyi te ayuda a <span class="text-gradient"
+                    >AHORRAR dinero</span
+                >
+            </h2>
+            <p class="section-description">
+                No es sólo una herramienta de organización. Fluyi calcula
+                automáticamente:
+            </p>
+        </div>
+
+        <div class="value-grid">
+            <div class="value-card">
+                <div class="value-icon">📉</div>
+                <div class="value-label">IVA a pagar real</div>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">⚖️</div>
+                <div class="value-label">Crédito a favor</div>
+            </div>
+            <div class="value-card highlight">
+                <div class="value-icon">💰</div>
+                <div class="value-label">
+                    <strong>Ganancia Real</strong>
+                    <span class="small-text"
+                        >(tus beneficios después de impuestos)</span
+                    >
+                </div>
+            </div>
+        </div>
+
+        <p class="value-benefit">
+            Así sabés exactamente cuánto preparar y cuánto estás ahorrando cada
+            mes.
+        </p>
+
+        <div class="value-note">
+            <span class="bulb">💡</span>
+            <p>
+                En Paraguay, la mayoría de micro-pymes paga de más en IVA por no
+                tener control. <strong>Fluyi evita eso.</strong>
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .value-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .value-header {
+        max-width: 40rem;
+    }
+
+    .value-grid {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 1rem;
+        width: 100%;
+        max-width: 50rem;
+    }
+
+    .value-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-soft);
+        padding: 1rem 1.5rem;
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transition: transform 0.2s;
+    }
+
+    .value-card:hover {
+        transform: translateY(-2px);
+        border-color: var(--primary);
+    }
+
+    .value-card.highlight {
+        background: linear-gradient(
+            135deg,
+            rgba(15, 23, 42, 0.9),
+            rgba(39, 39, 42, 0.9)
+        );
+        border-color: var(--accent);
+        box-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);
+    }
+
+    .value-icon {
+        font-size: 1.5rem;
+    }
+
+    .value-label {
+        text-align: left;
+        font-size: 1rem;
+        color: var(--text-main);
+    }
+
+    .small-text {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--text-soft);
+        margin-top: 0.2rem;
+    }
+
+    .value-benefit {
+        font-size: 1.1rem;
+        color: var(--text-soft);
+        max-width: 35rem;
+    }
+
+    .value-note {
+        background: rgba(250, 204, 21, 0.1);
+        border: 1px solid rgba(250, 204, 21, 0.3);
+        border-radius: var(--radius-md);
+        padding: 0.8rem 1.2rem;
+        display: flex;
+        gap: 0.8rem;
+        align-items: start;
+        text-align: left;
+        max-width: 38rem;
+        font-size: 0.9rem;
+        color: #fef08a;
+    }
+
+    .bulb {
+        font-size: 1.2rem;
+    }
+
+    @media (min-width: 768px) {
+        .value-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .value-card {
+            flex-direction: column;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .value-label {
+            text-align: center;
+        }
+
+        .value-note {
+            align-items: center;
+            text-align: center;
+        }
+    }
+</style>
