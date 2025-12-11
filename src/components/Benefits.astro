@@ -1,0 +1,110 @@
+---
+
+---
+
+<section class="section" aria-labelledby="features-title">
+    <div class="section-header">
+        <div class="section-kicker">Pensado para el contexto de LATAM</div>
+        <h2 id="features-title" class="section-title">
+            Finanzas claras, incluso con poco tiempo y mala conexión.
+        </h2>
+        <p class="section-description">
+            Fluyi App entiende cómo se trabaja en Latinoamérica: ventas por
+            WhatsApp, mensajes de voz, cobros en efectivo, transferencias,
+            ferias y pedidos a cualquier hora. Por eso la app es <strong
+                >rápida, liviana y directa al grano</strong
+            >.
+        </p>
+    </div>
+
+    <div class="features-grid">
+        <article class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3 class="feature-title">100% Mobile First</h3>
+            <p class="feature-text">
+                Diseñada para usarse desde el celular. Abrís la app, registrás
+                la venta y seguís atendiendo. No necesitás abrir la notebook ni
+                entender de contabilidad.
+            </p>
+            <div class="feature-tag">
+                Funciona perfecto en pantallas pequeñas.
+            </div>
+        </article>
+
+        <article class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Rápida en conexiones lentas</h3>
+            <p class="feature-text">
+                Optimizada para conexiones móviles de LATAM: pocos recursos,
+                nada pesado, y tiempos de carga mínimos para que no pierdas
+                ventas por culpa de la señal.
+            </p>
+            <div class="feature-tag">
+                Ideal para usar desde el negocio o la calle.
+            </div>
+        </article>
+
+        <article class="feature-card">
+            <div class="feature-icon">✅</div>
+            <h3 class="feature-title">Registro de transacciones en segundos</h3>
+            <p class="feature-text">
+                Agregá ventas y gastos en menos de 5 segundos. Elegí categoría,
+                monto y listo. Lo importante es que <strong
+                    >no se te escape ninguna operación</strong
+                >.
+            </p>
+            <div class="feature-tag">Más control, menos planillas eternas.</div>
+        </article>
+    </div>
+</section>
+
+<style>
+    .features-grid {
+        display: grid;
+        gap: 1rem;
+    }
+
+    .feature-card {
+        background: var(--card-bg);
+        border-radius: var(--radius-lg);
+        padding: 1rem;
+        border: 1px solid var(--border-soft);
+        box-shadow: 0 10px 26px rgba(15, 23, 42, 0.6);
+    }
+
+    .feature-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        background: var(--primary-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .feature-title {
+        font-size: 0.98rem;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+    }
+
+    .feature-text {
+        font-size: 0.85rem;
+        color: var(--text-soft);
+    }
+
+    .feature-tag {
+        display: inline-block;
+        margin-top: 0.6rem;
+        font-size: 0.72rem;
+        color: #bfdbfe;
+    }
+
+    @media (min-width: 768px) {
+        .features-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+</style>

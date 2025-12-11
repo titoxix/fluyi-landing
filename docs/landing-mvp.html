@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fluyi App – Finanzas simples para micro pymes de LATAM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Fluyi App ayuda a micro pymes de LATAM a gestionar sus finanzas de forma simple, rápida y desde el celular. Registra tus transacciones en segundos y probá GRATIS."
+  />
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #070b1f;
+      --card-bg: #0d1228;
+      --primary: #4f46e5;
+      --primary-soft: rgba(79, 70, 229, 0.15);
+      --primary-strong: #6366f1;
+      --accent: #22c55e;
+      --text-main: #f9fafb;
+      --text-soft: #9ca3af;
+      --border-soft: rgba(148, 163, 184, 0.35);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.7);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --transition: 200ms ease-out;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 50%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .layout {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #a855f7, #4f46e5 55%, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5e7eb;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 8px 24px rgba(79, 70, 229, 0.5);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .logo-text-title {
+      font-weight: 650;
+      letter-spacing: 0.03em;
+      font-size: 0.98rem;
+    }
+
+    .logo-text-sub {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+
+    .header-cta {
+      display: none;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      gap: 2rem;
+      margin-top: 0.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.7rem 0.3rem 0.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text-soft);
+      font-size: 0.75rem;
+      width: fit-content;
+    }
+
+    .pill-dot {
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.2);
+    }
+
+    .pill-strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: 1.9rem;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #a855f7, #4f46e5, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      max-width: 30rem;
+    }
+
+    .hero-subtitle strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      color: white;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 14px 34px rgba(79, 70, 229, 0.65);
+      transition: transform var(--transition), box-shadow var(--transition),
+        filter var(--transition);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(79, 70, 229, 0.85);
+      filter: brightness(1.03);
+    }
+
+    .btn-primary-icon {
+      font-size: 1.05rem;
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .hero-note strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 0.3rem;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text-soft);
+    }
+
+    .chip span {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 60%);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1.2rem 1rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-tag {
+      position: absolute;
+      inset: 0;
+      opacity: 0.12;
+      background: radial-gradient(circle at bottom right, #22c55e 0, transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-card-status {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.16);
+      color: #bbf7d0;
+      border: 1px solid rgba(22, 163, 74, 0.6);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .metric {
+      padding: 0.75rem 0.7rem;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .metric-label {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      margin-bottom: 0.2rem;
+    }
+
+    .metric-value {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .metric-trend {
+      font-size: 0.7rem;
+      color: #4ade80;
+      margin-top: 0.1rem;
+    }
+
+    .metric-tag {
+      font-size: 0.7rem;
+      color: #fde68a;
+    }
+
+    .hero-timeline {
+      margin-top: 0.7rem;
+    }
+
+    .timeline-title {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .timeline-line {
+      flex: 1;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(
+        90deg,
+        rgba(79, 70, 229, 0.7),
+        rgba(14, 116, 144, 0.9)
+      );
+    }
+
+    .timeline-label {
+      font-size: 0.7rem;
+      color: #e5e7eb;
+    }
+
+    /* SECTION GENÉRICA */
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .section-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-description {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+      max-width: 34rem;
+    }
+
+    /* FEATURES PRINCIPALES */
+
+    .features-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.6);
+    }
+
+    .feature-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .feature-text {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .feature-tag {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-size: 0.72rem;
+      color: #bfdbfe;
+    }
+
+    /* EMPATÍA */
+
+    .empathy {
+      background: radial-gradient(circle at top left, #1d2439 0, #020617 60%);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1.4rem 1.2rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .empathy-badge {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.1);
+      background: rgba(15, 23, 42, 0.8);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .empathy-badge span {
+      font-size: 0.8rem;
+    }
+
+    .empathy-main {
+      font-size: 0.98rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .empathy-main strong {
+      color: #facc15;
+      font-weight: 600;
+    }
+
+    .empathy-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .empathy-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .empathy-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    /* CÓMO FUNCIONA / PASOS */
+
+    .steps {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-top: 0.2rem;
+    }
+
+    .step-content-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .step-content-text {
+      font-size: 0.84rem;
+      color: var(--text-soft);
+    }
+
+    /* CTA FINAL */
+
+    .cta-final {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(79, 70, 229, 0.65);
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.98),
+        rgba(15, 23, 42, 0.98)
+      );
+      padding: 1.4rem 1.2rem;
+      box-shadow: 0 20px 50px rgba(17, 24, 39, 0.9);
+      display: grid;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .cta-final-title {
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .cta-final-text {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+
+    .cta-final-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .cta-pill {
+      font-size: 0.74rem;
+      color: #a5b4fc;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: #a5b4fc;
+      font-size: 0.78rem;
+    }
+
+    /* DESKTOP */
+
+    @media (min-width: 768px) {
+      .layout {
+        padding: 2.5rem 1.5rem 4rem;
+      }
+
+      header {
+        margin-bottom: 2rem;
+      }
+
+      .header-cta {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+      }
+
+      .header-link {
+        font-size: 0.8rem;
+        color: var(--text-soft);
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        align-items: center;
+        gap: 2.5rem;
+        margin-bottom: 3.5rem;
+      }
+
+      .hero-title {
+        font-size: 2.4rem;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .cta-final {
+        grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+        padding: 1.7rem 1.7rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-size: 2.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="layout">
+      <!-- HEADER -->
+      <header>
+        <div class="logo">
+          <div class="logo-mark">F</div>
+          <div class="logo-text">
+            <div class="logo-text-title">Fluyi App</div>
+            <div class="logo-text-sub">Finanzas simples para tu micro pyme</div>
+          </div>
+        </div>
+
+        <div class="header-cta">
+          <a href="https://www.fluyi.app/es/auth/signup" class="header-link">
+            Entrar a mi cuenta
+          </a>
+          <a href="https://www.fluyi.app/es/auth/signup" class="btn-primary">
+            Probar GRATIS
+          </a>
+        </div>
+      </header>
+
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-text">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span class="pill-strong">Pensado para micro pymes de LATAM</span>
+            <span>Controlá tus números sin complicarte</span>
+          </div>
+
+          <h1 id="hero-title" class="hero-title">
+            La app de finanzas hecha para
+            <span>emprendedores latinoamericanos</span>.
+          </h1>
+
+          <p class="hero-subtitle">
+            Fluyi App te ayuda a registrar <strong>cada venta y cada gasto</strong> en
+            segundos, directamente desde tu celular, incluso con
+            <strong>conexión lenta o inestable</strong>.
+          </p>
+
+          <div class="hero-cta-row">
+            <a
+              href="https://www.fluyi.app/es/auth/signup"
+              class="btn-primary"
+              aria-label="Crear cuenta gratis en Fluyi App"
+            >
+              <span>Crear cuenta GRATIS</span>
+              <span class="btn-primary-icon">→</span>
+            </a>
+
+            <div class="hero-note">
+              <strong>Sin tarjeta de crédito.</strong> Probá la app y decidí después.
+            </div>
+          </div>
+
+          <div class="hero-meta" aria-label="Características principales">
+            <div class="chip"><span>Mobile first</span> • desde cualquier lugar</div>
+            <div class="chip">
+              <span>Optimizada</span> para datos móviles y Wi-Fi inestable
+            </div>
+            <div class="chip"><span>Ideal para</span> WhatsApp, IG y locales pequeños</div>
+          </div>
+        </div>
+
+        <!-- Mockup / card de producto -->
+        <aside class="hero-card" aria-label="Vista previa de Fluyi App">
+          <div class="hero-card-tag"></div>
+
+          <div class="hero-card-header">
+            <div class="hero-card-title">Resumen de hoy</div>
+            <div class="hero-card-status">Negocio activo</div>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric">
+              <div class="metric-label">Ventas de hoy</div>
+              <div class="metric-value">Gs. 1.250.000</div>
+              <div class="metric-trend">+18% vs. ayer</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Gastos registrados</div>
+              <div class="metric-value">Gs. 430.000</div>
+              <div class="metric-tag">Todo bajo control</div>
+            </div>
+          </div>
+
+          <div class="hero-timeline">
+            <div class="timeline-title">Registro rápido de transacciones</div>
+            <div class="timeline-row">
+              <div class="timeline-label">Menos de 5 segundos por carga</div>
+              <div class="timeline-line"></div>
+              <div class="timeline-label">Listo ✅</div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- FEATURES PRINCIPALES -->
+      <section class="section" aria-labelledby="features-title">
+        <div class="section-header">
+          <div class="section-kicker">Pensado para el contexto de LATAM</div>
+          <h2 id="features-title" class="section-title">
+            Finanzas claras, incluso con poco tiempo y mala conexión.
+          </h2>
+          <p class="section-description">
+            Fluyi App entiende cómo se trabaja en Latinoamérica: ventas por WhatsApp,
+            mensajes de voz, cobros en efectivo, transferencias, ferias y pedidos a
+            cualquier hora. Por eso la app es <strong>rápida, liviana y directa al grano</strong>.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3 class="feature-title">100% Mobile First</h3>
+            <p class="feature-text">
+              Diseñada para usarse desde el celular. Abrís la app, registrás la venta y
+              seguís atendiendo. No necesitás abrir la notebook ni entender de contabilidad.
+            </p>
+            <div class="feature-tag">Funciona perfecto en pantallas pequeñas.</div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Rápida en conexiones lentas</h3>
+            <p class="feature-text">
+              Optimizada para conexiones móviles de LATAM: pocos recursos, nada pesado,
+              y tiempos de carga mínimos para que no pierdas ventas por culpa de la señal.
+            </p>
+            <div class="feature-tag">Ideal para usar desde el negocio o la calle.</div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">✅</div>
+            <h3 class="feature-title">Registro de transacciones en segundos</h3>
+            <p class="feature-text">
+              Agregá ventas y gastos en menos de 5 segundos. Elegí categoría, monto y
+              listo. Lo importante es que <strong>no se te escape ninguna operación</strong>.
+            </p>
+            <div class="feature-tag">Más control, menos planillas eternas.</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- EMPATÍA CON EL EMPRENDEDOR LATINO -->
+      <section class="section" aria-labelledby="empathy-title">
+        <div class="section-header">
+          <div class="section-kicker">Hecha con empatía</div>
+          <h2 id="empathy-title" class="section-title">
+            Sabemos lo que es emprender en Latinoamérica.
+          </h2>
+        </div>
+
+        <div class="empathy">
+          <div class="empathy-badge">
+            ✨
+            <span>Para el negocio familiar, el local de barrio y el emprendimiento online.</span>
+          </div>
+
+          <p class="empathy-main">
+            En LATAM, emprender significa <strong>trabajar mucho y adaptarse todos los
+            días</strong>: precios que cambian, proveedores que se atrasan, clientes que
+            pagan en efectivo, transferencia o billetera digital. Fluyi App nace para
+            darte <strong>claridad en medio de ese caos</strong>, sin llenarte de
+            pantallas complicadas ni términos raros.
+          </p>
+
+          <div class="empathy-meta">
+            <span
+              ><span class="empathy-meta-dot"></span> Pensada para quienes venden por WhatsApp e
+              Instagram.</span
+            >
+            <span
+              ><span class="empathy-meta-dot"></span> Ideal para micro pymes, locales pequeños y
+              emprendimientos que recién arrancan.</span
+            >
+            <span
+              ><span class="empathy-meta-dot"></span> Lenguaje simple, sin tecnicismos
+              contables.</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- CÓMO FUNCIONA -->
+      <section class="section" aria-labelledby="steps-title">
+        <div class="section-header">
+          <div class="section-kicker">Cómo funciona</div>
+          <h2 id="steps-title" class="section-title">
+            Empezar a usar Fluyi App es muy simple.
+          </h2>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div>
+              <div class="step-content-title">Creá tu cuenta GRATIS</div>
+              <div class="step-content-text">
+                Entrá a
+                <strong>https://www.fluyi.app/es/auth/signup</strong>,
+                registrate en segundos y empezá a probar Fluyi App sin costo.
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <div>
+              <div class="step-content-title">Configurá tu negocio</div>
+              <div class="step-content-text">
+                Agregá el nombre de tu emprendimiento, moneda, categorías básicas y listo.
+                No necesitás ser contador para empezar.
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <div>
+              <div class="step-content-title">Registrá ventas y gastos al instante</div>
+              <div class="step-content-text">
+                Cada vez que vendés o gastás, lo cargás en Fluyi App desde tu celular.
+                Con el tiempo, vas viendo cómo se mueve tu negocio y qué tan rentable es.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="section" aria-labelledby="cta-final-title">
+        <div class="cta-final">
+          <div>
+            <h2 id="cta-final-title" class="cta-final-title">
+              Probá Fluyi App GRATIS y empezá a ordenar las finanzas de tu micro pyme.
+            </h2>
+            <p class="cta-final-text">
+              No importa si vendés por WhatsApp, Instagram, ferias o en un pequeño local.
+              Lo importante es que tus números estén claros. Fluyi App te acompaña en ese
+              camino con una herramienta <strong>simple, rápida y creada para Latinoamérica</strong>.
+            </p>
+          </div>
+
+          <div class="cta-final-row">
+            <a
+              href="https://www.fluyi.app/es/auth/signup"
+              class="btn-primary"
+              aria-label="Crear cuenta gratis en Fluyi App"
+            >
+              <span>Crear cuenta GRATIS</span>
+              <span class="btn-primary-icon">→</span>
+            </a>
+            <div class="cta-pill">
+              Sin compromiso, sin tarjeta, cancelás cuando quieras.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <div>© <span id="year"></span> Fluyi App. Todos los derechos reservados.</div>
+        <div>
+          <a href="https://www.fluyi.app/es/auth/signup">Crear cuenta gratis</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

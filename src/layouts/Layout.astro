@@ -1,16 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<title>Fluyi App – Finanzas simples para micro pymes de LATAM</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta
+			name="description"
+			content="Fluyi App ayuda a micro pymes de LATAM a gestionar sus finanzas de forma simple, rápida y desde el celular. Registra tus transacciones en segundos y probá GRATIS."
+		/>
 	</head>
 	<body>
-		<slot />
+		<div class="page">
+			<slot />
+		</div>
 	</body>
 </html>
+
+<script>
+	// Import global styles
+	import "../styles/main.css";
+</script>
 
 <style>
 	html,

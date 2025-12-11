@@ -1,0 +1,324 @@
+---
+
+---
+
+<section class="hero" aria-labelledby="hero-title">
+    <div class="hero-text">
+        <div class="pill">
+            <span class="pill-dot"></span>
+            <span class="pill-strong">Pensado para micro pymes de LATAM</span>
+            <span>Controlá tus números sin complicarte</span>
+        </div>
+
+        <h1 id="hero-title" class="hero-title">
+            La app de finanzas hecha para
+            <span>emprendedores latinoamericanos</span>.
+        </h1>
+
+        <p class="hero-subtitle">
+            Fluyi App te ayuda a registrar <strong
+                >cada venta y cada gasto</strong
+            > en segundos, directamente desde tu celular, incluso con
+            <strong>conexión lenta o inestable</strong>.
+        </p>
+
+        <div class="hero-cta-row">
+            <a
+                href="https://app.fluyi.app/es/auth/signup"
+                class="btn-primary"
+                aria-label="Crear cuenta gratis en Fluyi App"
+            >
+                <span>Crear cuenta GRATIS</span>
+                <span class="btn-primary-icon">→</span>
+            </a>
+
+            <div class="hero-note">
+                <strong>Sin tarjeta de crédito.</strong> Probá la app y decidí después.
+            </div>
+        </div>
+
+        <div class="hero-meta" aria-label="Características principales">
+            <div class="chip">
+                <span>Mobile first</span> • desde cualquier lugar
+            </div>
+            <div class="chip">
+                <span>Optimizada</span> para datos móviles y Wi-Fi inestable
+            </div>
+            <div class="chip">
+                <span>Ideal para</span> WhatsApp, IG y locales pequeños
+            </div>
+        </div>
+    </div>
+
+    <!-- Mockup / card de producto -->
+    <aside class="hero-card" aria-label="Vista previa de Fluyi App">
+        <div class="hero-card-tag"></div>
+
+        <div class="hero-card-header">
+            <div class="hero-card-title">Resumen de hoy</div>
+            <div class="hero-card-status">Negocio activo</div>
+        </div>
+
+        <div class="hero-metrics">
+            <div class="metric">
+                <div class="metric-label">Ventas de hoy</div>
+                <div class="metric-value">Gs. 1.250.000</div>
+                <div class="metric-trend">+18% vs. ayer</div>
+            </div>
+            <div class="metric">
+                <div class="metric-label">Gastos registrados</div>
+                <div class="metric-value">Gs. 430.000</div>
+                <div class="metric-tag">Todo bajo control</div>
+            </div>
+        </div>
+
+        <div class="hero-timeline">
+            <div class="timeline-title">Registro rápido de transacciones</div>
+            <div class="timeline-row">
+                <div class="timeline-label">Menos de 5 segundos por carga</div>
+                <div class="timeline-line"></div>
+                <div class="timeline-label">Listo ✅</div>
+            </div>
+        </div>
+    </aside>
+</section>
+
+<style>
+    /* Hero specific local styles if needed, though most are global now */
+    .hero {
+        display: grid;
+        gap: 2rem;
+        margin-top: 0.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.3rem 0.7rem 0.3rem 0.35rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        background: rgba(15, 23, 42, 0.85);
+        color: var(--text-soft);
+        font-size: 0.75rem;
+        width: fit-content;
+    }
+
+    .pill-dot {
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 999px;
+        background: var(--accent);
+        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.2);
+    }
+
+    .pill-strong {
+        color: var(--accent);
+        font-weight: 600;
+    }
+
+    .hero-title {
+        font-size: 1.9rem;
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+    }
+
+    .hero-title span {
+        background: linear-gradient(120deg, #a855f7, #4f46e5, #22c55e);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .hero-subtitle {
+        font-size: 0.98rem;
+        color: var(--text-soft);
+        max-width: 30rem;
+    }
+
+    .hero-subtitle strong {
+        color: #e5e7eb;
+        font-weight: 500;
+    }
+
+    .hero-cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        align-items: center;
+    }
+
+    .hero-note {
+        font-size: 0.78rem;
+        color: var(--text-soft);
+    }
+
+    .hero-note strong {
+        color: var(--accent);
+        font-weight: 600;
+    }
+
+    .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin-top: 0.3rem;
+    }
+
+    .chip {
+        border-radius: 999px;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.7rem;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        background: rgba(15, 23, 42, 0.85);
+        color: var(--text-soft);
+    }
+
+    .chip span {
+        color: #e5e7eb;
+        font-weight: 500;
+    }
+
+    .hero-card {
+        border-radius: var(--radius-xl);
+        background: radial-gradient(circle at top left, #1f2937 0, #020617 60%);
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        padding: 1.2rem 1rem;
+        box-shadow: var(--shadow-soft);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-card-tag {
+        position: absolute;
+        inset: 0;
+        opacity: 0.12;
+        background: radial-gradient(
+            circle at bottom right,
+            #22c55e 0,
+            transparent 55%
+        );
+        pointer-events: none;
+    }
+
+    .hero-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.9rem;
+    }
+
+    .hero-card-title {
+        font-size: 0.86rem;
+        color: var(--text-soft);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    .hero-card-status {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(22, 163, 74, 0.16);
+        color: #bbf7d0;
+        border: 1px solid rgba(22, 163, 74, 0.6);
+    }
+
+    .hero-metrics {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.85rem;
+        margin-bottom: 1.1rem;
+    }
+
+    .metric {
+        padding: 0.75rem 0.7rem;
+        border-radius: 14px;
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .metric-label {
+        font-size: 0.72rem;
+        color: var(--text-soft);
+        margin-bottom: 0.2rem;
+    }
+
+    .metric-value {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .metric-trend {
+        font-size: 0.7rem;
+        color: #4ade80;
+        margin-top: 0.1rem;
+    }
+
+    .metric-tag {
+        font-size: 0.7rem;
+        color: #fde68a;
+    }
+
+    .hero-timeline {
+        margin-top: 0.7rem;
+    }
+
+    .timeline-title {
+        font-size: 0.76rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-soft);
+        margin-bottom: 0.5rem;
+    }
+
+    .timeline-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.78rem;
+        color: var(--text-soft);
+    }
+
+    .timeline-line {
+        flex: 1;
+        height: 4px;
+        border-radius: 999px;
+        background: linear-gradient(
+            90deg,
+            rgba(79, 70, 229, 0.7),
+            rgba(14, 116, 144, 0.9)
+        );
+    }
+
+    .timeline-label {
+        font-size: 0.7rem;
+        color: #e5e7eb;
+    }
+
+    @media (min-width: 768px) {
+        .hero {
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            align-items: center;
+            gap: 2.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .hero-title {
+            font-size: 2.4rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .hero-title {
+            font-size: 2.7rem;
+        }
+    }
+</style>

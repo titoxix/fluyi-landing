@@ -1,0 +1,29 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer>
+    <div>© {year} Fluyi App. Todos los derechos reservados.</div>
+    <div>
+        <a href="https://app.fluyi.app/es/auth/signup">Crear cuenta gratis</a>
+    </div>
+</footer>
+
+<style>
+    footer {
+        margin-top: 2.5rem;
+        padding-top: 1.4rem;
+        border-top: 1px solid rgba(31, 41, 55, 0.9);
+        font-size: 0.78rem;
+        color: var(--text-soft);
+        display: flex;
+        justify-content: space-between;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    footer a {
+        color: #a5b4fc;
+        font-size: 0.78rem;
+    }
+</style>
