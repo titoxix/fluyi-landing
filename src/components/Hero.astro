@@ -51,34 +51,18 @@
         </div>
     </div>
 
-    <!-- Mockup / card de producto -->
-    <aside class="hero-card" aria-label="Vista previa de Fluyi App">
-        <div class="hero-card-tag"></div>
-
-        <div class="hero-card-header">
-            <div class="hero-card-title">Resumen de hoy</div>
-            <div class="hero-card-status">Negocio activo</div>
-        </div>
-
-        <div class="hero-metrics">
-            <div class="metric">
-                <div class="metric-label">Ventas de hoy</div>
-                <div class="metric-value">Gs. 1.250.000</div>
-                <div class="metric-trend">+18% vs. ayer</div>
-            </div>
-            <div class="metric">
-                <div class="metric-label">Gastos registrados</div>
-                <div class="metric-value">Gs. 430.000</div>
-                <div class="metric-tag">Todo bajo control</div>
-            </div>
-        </div>
-
-        <div class="hero-timeline">
-            <div class="timeline-title">Registro rápido de transacciones</div>
-            <div class="timeline-row">
-                <div class="timeline-label">Menos de 5 segundos por carga</div>
-                <div class="timeline-line"></div>
-                <div class="timeline-label">Listo ✅</div>
+    <!-- Mobile Demo Phone Frame -->
+    <aside class="hero-phone-container" aria-label="Demo de Fluyi App">
+        <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+                <video
+                    src="/demo-mobile.webm"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    class="phone-video"></video>
             </div>
         </div>
     </aside>
@@ -186,122 +170,56 @@
         font-weight: 500;
     }
 
-    .hero-card {
-        border-radius: var(--radius-xl);
-        background: radial-gradient(circle at top left, #1f2937 0, #020617 60%);
-        border: 1px solid rgba(148, 163, 184, 0.35);
-        padding: 1.2rem 1rem;
-        box-shadow: var(--shadow-soft);
+    /* PHONE STYLES */
+    .hero-phone-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .phone-frame {
         position: relative;
+        width: 280px;
+        height: 580px;
+        background: #020617;
+        border-radius: 40px;
+        box-shadow:
+            0 0 0 2px #334155,
+            0 0 0 7px #0f172a,
+            0 20px 50px -10px rgba(0, 0, 0, 0.5);
         overflow: hidden;
+        border: 4px solid #1e293b;
+        z-index: 10;
     }
 
-    .hero-card-tag {
+    /* Notch */
+    .phone-notch {
         position: absolute;
-        inset: 0;
-        opacity: 0.12;
-        background: radial-gradient(
-            circle at bottom right,
-            #22c55e 0,
-            transparent 55%
-        );
-        pointer-events: none;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 25px;
+        background: #0f172a;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        z-index: 20;
     }
 
-    .hero-card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 0.9rem;
+    .phone-screen {
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        border-radius: 36px;
+        overflow: hidden;
+        position: relative;
     }
 
-    .hero-card-title {
-        font-size: 0.86rem;
-        color: var(--text-soft);
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-    }
-
-    .hero-card-status {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.7rem;
-        border-radius: 999px;
-        background: rgba(22, 163, 74, 0.16);
-        color: #bbf7d0;
-        border: 1px solid rgba(22, 163, 74, 0.6);
-    }
-
-    .hero-metrics {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.85rem;
-        margin-bottom: 1.1rem;
-    }
-
-    .metric {
-        padding: 0.75rem 0.7rem;
-        border-radius: 14px;
-        background: rgba(15, 23, 42, 0.9);
-        border: 1px solid rgba(148, 163, 184, 0.25);
-    }
-
-    .metric-label {
-        font-size: 0.72rem;
-        color: var(--text-soft);
-        margin-bottom: 0.2rem;
-    }
-
-    .metric-value {
-        font-size: 1rem;
-        font-weight: 600;
-    }
-
-    .metric-trend {
-        font-size: 0.7rem;
-        color: #4ade80;
-        margin-top: 0.1rem;
-    }
-
-    .metric-tag {
-        font-size: 0.7rem;
-        color: #fde68a;
-    }
-
-    .hero-timeline {
-        margin-top: 0.7rem;
-    }
-
-    .timeline-title {
-        font-size: 0.76rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--text-soft);
-        margin-bottom: 0.5rem;
-    }
-
-    .timeline-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.78rem;
-        color: var(--text-soft);
-    }
-
-    .timeline-line {
-        flex: 1;
-        height: 4px;
-        border-radius: 999px;
-        background: linear-gradient(
-            90deg,
-            rgba(79, 70, 229, 0.7),
-            rgba(14, 116, 144, 0.9)
-        );
-    }
-
-    .timeline-label {
-        font-size: 0.7rem;
-        color: #e5e7eb;
+    .phone-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     @media (min-width: 768px) {
