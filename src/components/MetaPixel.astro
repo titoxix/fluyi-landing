@@ -1,13 +1,13 @@
 ---
 interface Props {
-    id: string;
+    pixelId: string;
 }
 
-const { id } = Astro.props;
+const { pixelId } = Astro.props;
 ---
 
 <!-- Meta Pixel Code -->
-<script is:inline define:vars={{ id }}>
+<script is:inline define:vars={{ pixelId }}>
     !(function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
         n = f.fbq = function () {
@@ -31,7 +31,7 @@ const { id } = Astro.props;
         "script",
         "https://connect.facebook.net/en_US/fbevents.js",
     );
-    fbq("init", id);
+    fbq("init", pixelId);
     fbq("track", "PageView");
 </script>
 <noscript
@@ -39,7 +39,7 @@ const { id } = Astro.props;
         height="1"
         width="1"
         style="display:none"
-        src={`https://www.facebook.com/tr?id=${id}&ev=PageView&noscript=1`}
+        src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
     /></noscript
 >
 <!-- End Meta Pixel Code -->
